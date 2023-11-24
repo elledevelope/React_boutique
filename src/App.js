@@ -12,21 +12,23 @@ const App = () => {
     }
   );
 
-  const decrementQte = (id) =>{
+  const decrementQte = (id) => {
     //state.articles[id].qte--;
     //option1 :
-    let articlesTmp = state.articles;
-    articlesTmp[id].qte--;
-    setState({
-      'articles':articlesTmp,
-    })
+    if (state.articles[id].qte > 0) {
+      let articlesTmp = state.articles;
+      articlesTmp[id].qte--;
+      setState({
+        'articles': articlesTmp,
+      })
+    }
   }
 
   return (
     <>
       <header></header>
       <main>
-        <Gallery articles={state.articles}  decrementQte={decrementQte}>
+        <Gallery articles={state.articles} decrementQte={decrementQte}>
         </Gallery>
       </main>
       <footer></footer>

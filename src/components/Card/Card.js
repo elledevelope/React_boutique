@@ -2,19 +2,6 @@ import React from 'react';
 import './Card.css';
 // import Button from '../Button/Button';
 
-/* const Card = ({ article }) => {
-  return (
-    <div className="Card">
-      <img src={article.img} alt={article.name} />
-      <p id="name">{article.name}</p>
-      <p id="description">{article.description}</p>
-      <p id="prix">{article.prix} € - in stock: {article.quantite} </p>
-
-      <Button onClick = {() =>props.decrementQte(props.article.id)} />
-    </div>
-  );
-}; */
-
 const Card = (props) => {
   return (
     <div className="Card">

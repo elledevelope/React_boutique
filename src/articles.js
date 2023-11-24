@@ -5,7 +5,7 @@ const articles = [
       img: "tshirt.jpg", 
       description: "Comfortable and breathable cotton T-shirt",
       prix: 19.99,
-      qte: 50,
+      qte: 10,
       promo: true 
     },
     {
@@ -14,7 +14,7 @@ const articles = [
       img: "top.jpg",
       description: "Comfortable V-neck top for a cozy feel",
       prix: 42.99,
-      qte: 28,
+      qte: 7,
       promo: false
     }, 
     {
@@ -23,7 +23,7 @@ const articles = [
       img: "hoodie.jpg",
       description: "Warm and cozy hooded sweatshirt",
       prix: 24.99,
-      qte: 20,
+      qte: 5,
       promo: false 
     },
     {
@@ -32,7 +32,7 @@ const articles = [
         img: "jacket.jpg",
         description: "Classic denim jacket for a stylish look",
         prix: 49.99,
-        qte: 15,
+        qte: 8,
         promo: true 
       },
       {
@@ -41,7 +41,7 @@ const articles = [
         img: "dress.jpg",
         description: "Elegant floral maxi dress for special occasions",
         prix: 39.99,
-        qte: 25,
+        qte: 11,
         promo: false
       },
       {
@@ -50,7 +50,7 @@ const articles = [
         img: "polo.jpg",
         description: "Casual polo shirt for a relaxed look",
         prix: 29.99,
-        qte: 30,
+        qte: 10,
         promo: true 
       },
       {
@@ -59,7 +59,7 @@ const articles = [
         img: "skirt.jpg",
         description: "Chic skirt for a fashionable outfit",
         prix: 34.99,
-        qte: 22,
+        qte: 12,
         promo: false
       },
       {
@@ -68,7 +68,7 @@ const articles = [
         img: "jeans.jpg",
         description: "Slim-fit denim jeans",
         prix: 34.99,
-        qte: 30,
+        qte: 6,
         promo: false 
       }
  

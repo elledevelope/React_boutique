@@ -1,6 +1,6 @@
 .Card {
     display: flex;
-    min-height: 300px ;
+    min-height: 520px ;
     justify-content: center;
     align-items: center;
     flex-direction: column;
