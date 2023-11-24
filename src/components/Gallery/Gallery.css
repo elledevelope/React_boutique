@@ -1,15 +1,17 @@
 .Gallery {
     display: flex;
-    justify-content: flex-start;
     flex-wrap: wrap;
-    width: 70%;
-    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: -10px;  */
     padding: 30px 0;
+    width: 80%;
+    margin: auto;
 }
 
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 1024px) {
     .Gallery  {
-        width: 80%;     
+    
     }
 }
