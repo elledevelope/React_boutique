@@ -47,11 +47,16 @@
 
 .Card span {
     color: grey;
+    font-size: .9rem;
+}
+
+.cardPrice {
+    padding-bottom: 25px;
 }
 
 .cardBtn {
     width: 70%;
-    /* margin-top: 25px; */
+    margin-top: 25px;
     padding: 10px 15px;
     border-radius: 3px;
     cursor: pointer;
@@ -73,14 +78,9 @@
     background: linear-gradient(#408c99, #599bb3);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1250px) {
     .Card {
         width: 20%;
     }
 }
 
-/* @media screen and (max-width: 600px ) {
-    .Card {
-        width: 20%;
-    }
-} */
