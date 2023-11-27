@@ -1,12 +1,21 @@
-import React from 'react';
+// import React from 'react';
 import './Panier.css';
 
-const Panier = () => (
+const Panier = (props) => (
   <>
-    <div className="Panier">
-        <p id="shoppingState">Your shopping bag is empty</p>
+    <div className='backgroundPanier'>
+      <div className="Panier">
+        <div className='close' onClick={props.handelDisplayPanier}>X</div>
+        <p id="shoppingState">Your shopping bag</p>
+
+
+
         <p id="value">Order value:<span>00.00€</span></p>
         <p id="total">Total:<span>00.00€</span></p>
+
+
+
+      </div>
     </div>
   </>
 
