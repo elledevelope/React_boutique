@@ -1,4 +1,4 @@
-.Panier {
+/* .Panier {
     width: 300px;
     height: 150px;
     background-color: rgba(255, 255, 255, 0.233);
@@ -6,8 +6,39 @@
     0 6px 30px 5px rgba(33, 37, 41, 0.04), 0 8px 10px -5px rgba(33, 37, 41, 0.1);
     position: absolute;
     top: 60px;
-    right: 0px;
-    
+    right: 0px;    
+} */
+
+.backgroundPanier {
+    top: 0;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.62);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.Panier{
+    width: 70%;
+    max-height: 70%;
+    background-color: white;
+    position: absolute;
+}
+
+.close{
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.close:hover{
+    cursor: pointer;
 }
 
 .Panier p {
@@ -22,3 +53,4 @@ justify-content: space-between;
 .Panier #total {
     font-weight: bold;
 }
+

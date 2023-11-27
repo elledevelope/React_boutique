@@ -9,3 +9,9 @@ img,
 input {
   width: 100%;
 }
+
+#logo {
+width: 300px;
+margin: auto;
+margin-top: 30px;
+}

@@ -1,0 +1,25 @@
+.ListMenu {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 90%;
+    margin-left: 40px;
+}
+
+.ListMenu li {
+    list-style: none;
+    padding: 10px 20px;
+    color: #8859b4;
+    font-weight: bold;
+}
+
+.ListMenu  li:hover {
+    cursor: pointer;
+    text-shadow: 0px 10px 14px -7px #8859b4; 
+    color: #408c99;
+  }
+        
+
+.ListMenu a {
+    text-decoration: none;
+}
