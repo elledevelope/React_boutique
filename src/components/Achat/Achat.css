@@ -1,1 +1,54 @@
-.Achat {}
+.Achat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 50px;
+    border-bottom: .5px solid rgba(128, 128, 128, 0.279) ;
+}
+
+.achatImg {
+    width: 60px;
+}
+
+.achatQte {
+color: grey;
+} 
+
+.AchatBtn {
+    /* padding: 1px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #808080;
+    background: #8859b4;
+    box-shadow: 0px 10px 14px -7px #8859b4;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 5px; */
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.btn:hover {
+    /* border: 1px solid transparent;
+    border: 1px solid transparent;
+    background: linear-gradient(#408c99, #599bb3); */
+}
+
+.btnPlus {
+    padding: 1px 6px;
+}
+
+#sub_achat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.achatPrix {
+    margin-left: 30px;
+}
