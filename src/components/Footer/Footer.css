@@ -1,0 +1,110 @@
+.footerBackground {
+    background-color: #e8e8e8;
+    height: 70vh;
+}
+
+.Footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Footer #logo {
+    width: 150px;
+    height: 50px;
+    margin: 20px 0;
+}
+
+.Footer ul {
+    list-style: none;
+    text-align: center;
+}
+
+.Footer a:hover {
+    color: #8859b4;
+    font-weight: bold;
+}
+
+.Footer a {
+    text-decoration: none;
+    color: grey;
+}
+
+.footer-shop li:first-child,
+.footer-help li:first-child {
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.Footer li {
+    padding: 5px;
+}
+
+.footer-social ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.Footer p {
+    color: gray;
+    text-align: center;
+}
+
+
+/* MEDIA QUERY TABLETTE AND DESKTOP */
+@media screen and (min-width: 768px) { 
+    .Footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footerBackground {
+        height: 35vh;
+    }
+
+    .subFooter {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .Footer #logo {
+        margin-left: 50px;
+    }
+    
+    .Footer ul {
+        text-align: left;
+    }
+
+.section-right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 170px;
+    margin-right: 30px;
+}
+.footer-social ul {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin: 0px;
+}
+
+.Footer p {
+    text-align: left;
+}
+}
