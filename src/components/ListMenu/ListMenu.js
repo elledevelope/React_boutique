@@ -4,21 +4,31 @@ import Panier from '../Panier/Panier';
 
 const ListMenu = (props) => {
   return (
-    <ul className="ListMenu">
-      {
-        props.sendEntries.map((value, index) => {
-          
-          return (
-              <li 
-                /* un event ne peut pas être directement conditionné */
-                onClick={
-                 value.entry === "Panier" ? props.handleDisplayPanier : null
-                }
-              key={index}>{value.entry}</li>  
-          )
-        })
-      }
-    </ul>
+    <>
+      <div className="ListMenu nav-links">
+        <div className="close-icon">
+          <img src="./assets/img/icons/x.svg" />
+        </div>
+
+        <ul >
+          {
+            props.sendEntries.map((value, index) => {
+
+              return (
+                <li
+                  /* un event ne peut pas être directement conditionné */
+                  onClick={
+                    value.entry === "Panier" ? props.handleDisplayPanier : null
+                  }
+                  key={index}>{value.entry}</li>
+              )
+            })
+          }
+        </ul>
+      </div>
+
+      
+    </>
   )
 };
 

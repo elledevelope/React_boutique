@@ -1,25 +1,55 @@
 .ListMenu {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* margin: auto; */
+    /* width: 90%; */
+    /* margin-left: 40px; */
+
+    background-color: white;
+    box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
+    0 6px 30px 5px rgba(33, 37, 41, 0.04), 0 8px 10px -5px rgba(33, 37, 41, 0.1);
+    padding: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: none;
+}
+
+.close-icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+.ListMenu ul {
     display: flex;
-    justify-content: space-between;
-    margin: auto;
-    width: 90%;
-    margin-left: 40px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .ListMenu li {
     list-style: none;
-    padding: 10px 20px;
+    padding: 7px;
     color: #8859b4;
     font-weight: bold;
+    
 }
 
 .ListMenu  li:hover {
     cursor: pointer;
     text-shadow: 0px 10px 14px -7px #8859b4; 
     color: #408c99;
-  }
-        
+  }        
 
 .ListMenu a {
     text-decoration: none;
+}
+
+
+/* MEDIA QUERY TABLETTE AND DESKTOP */
+@media screen and (min-width: 576) { 
+
 }
