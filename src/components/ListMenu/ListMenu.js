@@ -5,10 +5,12 @@ import Panier from '../Panier/Panier';
 const ListMenu = (props) => {
   return (
     <>
-      <div className="ListMenu nav-links">
-        <div className="close-icon">
+      <div className="ListMenu">
+        {/* <div className="close-icon" onClick={props.handelToggleMenu}>
           <img src="./assets/img/icons/x.svg" />
-        </div>
+        </div> */}
+
+        {/* <div className='close-icon' onClick={props.handelToggleMenu}>X</div> */}
 
         <ul >
           {

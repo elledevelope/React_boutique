@@ -6,13 +6,15 @@ import ListMenu from '../ListMenu/ListMenu';
 const Menu = (props) => {
   return (
     <div className="Menu">
-        <div className="burger">
+        <div className="burger" onClick={props.handelToggleMenu}>
           <img src="./assets/img/icons/bars.svg" />
         </div>
       <nav id="menu">
         <ListMenu
           sendEntries={props.sendEntries}
-          handleDisplayPanier={props.handleDisplayPanier}></ListMenu>
+          handleDisplayPanier={props.handleDisplayPanier}
+          handelToggleMenu ={props.handelToggleMenu}
+          ></ListMenu>
       </nav>
 
       {/* <ul>
