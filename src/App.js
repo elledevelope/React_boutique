@@ -13,7 +13,16 @@ import Footer from "./components/Footer/Footer.js";
 
 const App = () => {
 
-  
+    // const [stateToggleMenu, setToggleMenu] = React.useState(
+    //   {
+    //     'displayToggleMenu': false,
+    //   }
+    // );
+    // const handelToggleMenu = () => {
+    //   setToggleMenu({ 'displayToggleMenu': !stateToggleMenu.displayToggleMenu });
+    //   console.dir(stateToggleMenu.displayToggleMenu);
+    // };
+
 
 
   //display elements from array 'articles' in Card:
@@ -90,9 +99,10 @@ const App = () => {
     }}>
       <header>
       <link rel="icon" type="img/png" href="/assets/img/icons/hanger.png"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         <Menu
           handelDisplayPanier={handelDisplayPanier}
+          // handelToggleMenu ={handelToggleMenu}
           sendEntries={menuentries}
         > </Menu>
 

@@ -34,14 +34,14 @@ const Footer = () => {
           <div className="section-right">
             <div className="footer-social">
               <ul>
-                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="https://www.pinterest.com/" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a></li>
-                <li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i className="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.pinterest.com/" target="_blank"><i className="fa-brands fa-pinterest-p"></i></a></li>
+                <li><a href="https://www.facebook.com" target="_blank"><i className="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="https://twitter.com" target="_blank"><i className="fa-brands fa-x-twitter"></i></a></li>
               </ul>
             </div>
 
-            <div class="footer-copyright">
+            <div className="footer-copyright">
               <p>2023 Cookbook. All rights reserved.</p>
             </div>
           </div>
