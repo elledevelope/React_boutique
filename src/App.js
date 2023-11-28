@@ -6,11 +6,16 @@ import './App.css';
 import Menu from "./components/Menu/Menu.js";
 import Panier from "./components/Panier/Panier.js";
 import BoutiqueContext from "./contexts/BoutiqueContext.js";
+import Footer from "./components/Footer/Footer.js";
 
 
 
 
 const App = () => {
+
+  
+
+
   //display elements from array 'articles' in Card:
   const [state, setState] = React.useState(
     {
@@ -34,78 +39,84 @@ const App = () => {
   //onClick <button> (Card), decrement number(qte) of articles in stock and do not go less than 0,
   // Function to decrement the quantity of an item identified by its ID:
   const decrementQte = (id) => {
-    // Initialize an empty array to store updated purchase information:
-    const achatTmp = [];
-    // Flag to determine if the item with the specified ID is found in the current state,
-    //une boolean pour arreter ma boucle si le id === value.idachat,
-    //s'il existe dans nom array achat un article avec le meme id (déjà acheté)
+    // je déclare un tableau vide pour enregistrer mes achats
+    let achatTmp = [];
+    // je declare une boolean pour arreter ma boucle si le id === vaue.idachat
+    // s'il existe dans mon tableau achat un article avec le meme id (dejà acheté)
     let stop = false;
-
-    // Check if there are existing purchases in the array achat:
+    // une condition pour déterminer si mon tableau achat est vide
     if (state.achat.length > 0) {
-      // Map over the existing purchases to update the quantity of the targeted item:
+      // je lance une boucle map qui pourra retourner une copie de state.achat
+      // dans achatTmp
       achatTmp = state.achat.map((value) => {
-        // Check if the current purchase has the same ID as the targeted item:
+        // si le resultat est positif
         if (value.idachat === id) {
-          // Increment the quantity of the targeted item:
+          // j'incremente la qte de article acheté
           value.qteachat++;
-          // Set the stop flag to true to indicate that the item has been found and updated:
+          // j'empeche l'ajout d'un nouvel article à mon achatTmp
           stop = true
         }
         return value
-      });
+      })
+    }
+    // si stop est resté à false (ma boucle n'a pas trouvé de resultat positif)
+    if (!stop) {
+      //j'ajoute un nouvel article à mon tableau achatTmp
+      achatTmp = [...achatTmp, { 'idachat': id, 'qteachat': 1 }];
+    }
+
+
+
+    //state.articles[id].qte--;
+    //option1 :
+    if (state.articles[id].qte > 0) {
+      let articlesTmp = state.articles; //Tmp - temporare
+      articlesTmp[id].qte--;
+      setState({
+        'articles': articlesTmp,
+        'achat': achatTmp,
+      })
     };
 
-    // If the targeted item was not found in the existing purchases, add it to the array:
-      if (!stop) {
-        // Create a new array by spreading the existing purchases and adding a new object for the targeted item:
-        achatTmp = [...achatTmp, { 'idachat': id, 'qteachat': 1 }];
-      };
+  };
 
 
 
-      //state.articles[id].qte--;
-      //option1 :
-      if (state.articles[id].qte > 0) {
-        let articlesTmp = state.articles; //Tmp - temporare
-        articlesTmp[id].qte--;
-        setState({
-          'articles': articlesTmp,
-          'achat': achatTmp,
-        })
-      };
+  return (
+    <BoutiqueContext.Provider value={{
+      ...state,
+      'decrementQte': decrementQte,
+      // 'qteIncrement': qteIncrement,
+    }}>
+      <header>
+      <link rel="icon" type="img/png" href="/assets/img/icons/hanger.png"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <Menu
+          handelDisplayPanier={handelDisplayPanier}
+          sendEntries={menuentries}
+        > </Menu>
 
-    };
-
-
-
-    return (
-      <BoutiqueContext.Provider value={{ ...state, 'decrementQte': decrementQte }}>
-        <header>
-          <Menu
-            handelDisplayPanier={handelDisplayPanier}
-            sendEntries={menuentries}
-          > </Menu>
-
-          {/* Panier: */}
-          {/* {statePanier.displayPanier && <Panier ></Panier>}  */} {/* FOAD 24.11.23 */}
-          {statePanier.displayPanier ? <Panier
-            handelDisplayPanier={handelDisplayPanier}
-            achat={state.achat}
-          ></Panier> : <></>}
-        </header>
+        {/* Panier: */}
+        {/* {statePanier.displayPanier && <Panier ></Panier>}  */} {/* FOAD 24.11.23 */}
+        {statePanier.displayPanier ? <Panier
+          handelDisplayPanier={handelDisplayPanier}
+          achat={state.achat}
+        ></Panier> : <></>}
+      </header>
 
 
-        <main>
-          <div id="logo">
-            {/* <img src="./assets/img/logo-boutique.png" /> */}
-          </div>
+      <main>
+        <div id="logo">
+          <img src="./assets/img/logo-boutique.png" />
+        </div>
 
-          <Gallery articles={state.articles} decrementQte={decrementQte}></Gallery>
-        </main>
-        <footer></footer>
-      </BoutiqueContext.Provider>
-    );
-  }
+        <Gallery articles={state.articles} decrementQte={decrementQte}></Gallery>
+      </main>
+      <footer>
+        <Footer></Footer>
+      </footer>
+    </BoutiqueContext.Provider>
+  );
+}
 
-  export default App;
+export default App;
