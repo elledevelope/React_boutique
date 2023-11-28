@@ -6,7 +6,9 @@ import ListMenu from '../ListMenu/ListMenu';
 const Menu = (props) => {
   return (
     <div className="Menu">
-
+        <div className="burger">
+          <img src="./assets/img/icons/bars.svg" />
+        </div>
       <nav id="menu">
         <ListMenu
           sendEntries={props.sendEntries}
