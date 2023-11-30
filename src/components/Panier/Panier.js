@@ -37,3 +37,5 @@ const Panier = (props) => {
 };
 
 export default Panier;
+
+
