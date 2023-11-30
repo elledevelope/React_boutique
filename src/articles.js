@@ -4,7 +4,7 @@ const articles = [
     name: "Cotton T-Shirt",
     img: "tshirt.jpg",
     description: "Comfortable and breathable cotton T-shirt",
-    prix: 19.99,
+    prix: 10,
     qte: 10,
     promo: true
   },
@@ -13,7 +13,7 @@ const articles = [
     name: "V-Neck Top",
     img: "top.jpg",
     description: "Comfortable V-neck top for a cozy feel",
-    prix: 42.99,
+    prix: 40,
     qte: 7,
     promo: false
   },
@@ -22,7 +22,7 @@ const articles = [
     name: "Hooded Sweatshirt",
     img: "hoodie.jpg",
     description: "Warm and cozy hooded sweatshirt",
-    prix: 24.99,
+    prix: 25,
     qte: 5,
     promo: false
   },
