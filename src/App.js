@@ -49,38 +49,39 @@ const App = () => {
   //onClick <button> (Card), decrement number(qte) of articles in stock and do not go less than 0,
   // Function to decrement the quantity of an item identified by its ID:
   const decrementQte = (id) => {
-    // je déclare un tableau vide pour enregistrer mes achats
-    let achatTmp = [];
-    // je declare une boolean pour arreter ma boucle si le id === vaue.idachat
-    // s'il existe dans mon tableau achat un article avec le meme id (dejà acheté)
-    let stop = false;
-    // une condition pour déterminer si mon tableau achat est vide
-    if (state.achat.length > 0) {
-      // je lance une boucle map qui pourra retourner une copie de state.achat
-      // dans achatTmp
-      achatTmp = state.achat.map((value) => {
-        // si le resultat est positif
-        if (value.idachat === id) {
-          // j'incremente la qte de article acheté
-          value.qteachat++;
-          // j'empeche l'ajout d'un nouvel article à mon achatTmp
-          stop = true
-        }
-        return value
-      })
-    }
-    // si stop est resté à false (ma boucle n'a pas trouvé de resultat positif)
-    if (!stop) {
-      //j'ajoute un nouvel article à mon tableau achatTmp
-      achatTmp = [...achatTmp, { 'idachat': id, 'qteachat': 1 }];
-    }
-
-
-
-
-    //state.articles[id].qte--;
-    //option1 :
     if (state.articles[id].qte > 0) {
+      // je déclare un tableau vide pour enregistrer mes achats
+      let achatTmp = [];
+      // je declare une boolean pour arreter ma boucle si le id === vaue.idachat
+      // s'il existe dans mon tableau achat un article avec le meme id (dejà acheté)
+      let stop = false;
+      // une condition pour déterminer si mon tableau achat est vide
+      if (state.achat.length > 0) {
+        // je lance une boucle map qui pourra retourner une copie de state.achat
+        // dans achatTmp
+        achatTmp = state.achat.map((value) => {
+          // si le resultat est positif
+          if (value.idachat === id) {
+            // j'incremente la qte de article acheté
+            value.qteachat++;
+            // j'empeche l'ajout d'un nouvel article à mon achatTmp
+            stop = true
+          }
+          return value
+        })
+      }
+      // si stop est resté à false (ma boucle n'a pas trouvé de resultat positif)
+      if (!stop) {
+        //j'ajoute un nouvel article à mon tableau achatTmp
+        achatTmp = [...achatTmp, { 'idachat': id, 'qteachat': 1 }];
+      }
+
+
+
+
+      //state.articles[id].qte--;
+      //option1 :
+
       let articlesTmp = state.articles; //Tmp - temporare
       articlesTmp[id].qte--;
       setState({
