@@ -14,19 +14,19 @@ import ListMenu from "./components/ListMenu/ListMenu.js";
 
 const App = () => {
 
-  const [stateToggleMenu, setToggleMenu] = React.useState(
-    {
-      'displayToggleMenu': false,
-    }
-  );
-  const handelToggleMenu = () => {
-    setToggleMenu({ 'displayToggleMenu': !stateToggleMenu.displayToggleMenu });
-    console.dir(stateToggleMenu.displayToggleMenu);
-  };
+  // const [stateToggleMenu, setToggleMenu] = React.useState(
+  //   {
+  //     'displayToggleMenu': false,
+  //   }
+  // );
+  // const handelToggleMenu = () => {
+  //   setToggleMenu({ 'displayToggleMenu': !stateToggleMenu.displayToggleMenu });
+  //   console.dir(stateToggleMenu.displayToggleMenu);
+  // };
 
 
 
-  //display elements from array 'articles' in Card:
+  //-------------------display elements from array 'articles' in Card:
   const [state, setState] = React.useState(
     {
       'articles': articles,
@@ -40,48 +40,43 @@ const App = () => {
       'displayPanier': false,
     }
   );
-  // Function to toggle the 'displayPanier' state:
+  // -------------Function to toggle the 'displayPanier' state:
   const handelDisplayPanier = () => {
     setStatePanier({ 'displayPanier': !statePanier.displayPanier });
-    console.dir(statePanier.displayPanier);
+    // console.dir(statePanier.displayPanier);
   };
 
-  //onClick <button> (Card), decrement number(qte) of articles in stock and do not go less than 0,
+  //onClick (Card)(Achat), decrementQte of articles do not go less than 0 and not bigger than the qte in stock:
   // Function to decrement the quantity of an item identified by its ID:
   const decrementQte = (id) => {
     if (state.articles[id].qte > 0) {
-      // je déclare un tableau vide pour enregistrer mes achats
+      // je déclare un tableau vide pour enregistrer mes achats:
       let achatTmp = [];
-      // je declare une boolean pour arreter ma boucle si le id === vaue.idachat
-      // s'il existe dans mon tableau achat un article avec le meme id (dejà acheté)
+      // je declare une boolean pour arreter ma boucle si le id === value.idachat, s'il existe dans mon tableau achat un article avec le meme id (dejà acheté):
       let stop = false;
-      // une condition pour déterminer si mon tableau achat est vide
+      // une condition pour déterminer si mon tableau 'achat':[] est vide:
       if (state.achat.length > 0) {
-        // je lance une boucle map qui pourra retourner une copie de state.achat
-        // dans achatTmp
+        // je lance une boucle map qui pourra retourner une copie de state.achat, dans achatTmp[]:
         achatTmp = state.achat.map((value) => {
-          // si le resultat est positif
+          // si le resultat est positif:
           if (value.idachat === id) {
-            // j'incremente la qte de article acheté
+            // j'incremente la qte de article acheté:
             value.qteachat++;
-            // j'empeche l'ajout d'un nouvel article à mon achatTmp
+            // j'empeche l'ajout d'un nouvel article à mon achatTmp:
             stop = true
           }
           return value
         })
       }
-      // si stop est resté à false (ma boucle n'a pas trouvé de resultat positif)
+      // si stop est resté à false (ma boucle n'a pas trouvé de resultat positif):
       if (!stop) {
-        //j'ajoute un nouvel article à mon tableau achatTmp
+        //j'ajoute un nouvel article à mon tableau achatTmp[]:
         achatTmp = [...achatTmp, { 'idachat': id, 'qteachat': 1 }];
       }
 
 
-
-
       //state.articles[id].qte--;
       //option1 :
-
       let articlesTmp = state.articles; //Tmp - temporare
       articlesTmp[id].qte--;
       setState({
@@ -98,22 +93,23 @@ const App = () => {
       if (id === value.idachat) {
         tmpPanier[index].qteachat--;
         if (tmpPanier[index].qteachat === 0) {
-          //  supprimer l'entrée correspondante dans tmpPanier avec splice et index
+          //  supprimer l'entrée correspondante dans tmpPanier avec splice et index:
           tmpPanier.splice(index, 1);
         }
-        // incrémenter l'article correspondant à l'id dans articlesApp
+        // incrémenter l'article correspondant à l'id dans articlesApp:
         tmpArticles[id].qte++;
-        // setstate pour reajuster le panier et la qte (articlesApp)
+        // setstate pour reajuster le panier et la qte (articlesApp):
         setState({
           ...state,
-          // mise à jour de ma qte pour i(id de l'article)
+          // mise à jour de ma qte pour i(id de l'article):
           articles: tmpArticles,
-          // mise à jour de mon panier avec l'ajout de i
+          // mise à jour de mon panier avec l'ajout de i:
           achat: tmpPanier
         })
       }
     })
   }
+
 
   const handleDisplayPanier = () => {
     setStatePanier({ 'displayPanier': !statePanier.displayPanier })
@@ -121,7 +117,7 @@ const App = () => {
 
 
 
-
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <BoutiqueContext.Provider value={{
       ...state,
@@ -133,13 +129,13 @@ const App = () => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         <Menu
           handleDisplayPanier={handleDisplayPanier}
-          handelToggleMenu={handelToggleMenu}
+          // handelToggleMenu={handelToggleMenu}
           sendEntries={menuentries}
         > </Menu>
 
-        {stateToggleMenu.displayToggleMenu ? <ListMenu
+        {/* {stateToggleMenu.displayToggleMenu ? <ListMenu
           handelToggleMenu={handelToggleMenu}
-        ></ListMenu> : <></>}
+        ></ListMenu> : <></>} */}
 
         {/* {stateToggleMenu.displayToggleMenu && <ListMenu/>} */}
 
