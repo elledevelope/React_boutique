@@ -77,6 +77,7 @@ const App = () => {
 
 
 
+
     //state.articles[id].qte--;
     //option1 :
     if (state.articles[id].qte > 0) {
@@ -87,22 +88,50 @@ const App = () => {
         'achat': achatTmp,
       })
     };
-
   };
+
+  const qteIncrement = (id) => {
+    const tmpPanier = state.achat;
+    const tmpArticles = state.articles;
+    tmpPanier.map((value, index) => {
+      if (id === value.idachat) {
+        tmpPanier[index].qteachat--;
+        if (tmpPanier[index].qteachat === 0) {
+          //  supprimer l'entrée correspondante dans tmpPanier avec splice et index
+          tmpPanier.splice(index, 1);
+        }
+        // incrémenter l'article correspondant à l'id dans articlesApp
+        tmpArticles[id].qte++;
+        // setstate pour reajuster le panier et la qte (articlesApp)
+        setState({
+          ...state,
+          // mise à jour de ma qte pour i(id de l'article)
+          articles: tmpArticles,
+          // mise à jour de mon panier avec l'ajout de i
+          achat: tmpPanier
+        })
+      }
+    })
+  }
+
+  const handleDisplayPanier = () => {
+    setStatePanier({ 'displayPanier': !statePanier.displayPanier })
+  }
+
 
 
 
   return (
     <BoutiqueContext.Provider value={{
       ...state,
-      'decrementQte': decrementQte,
-      // 'qteIncrement': qteIncrement,
+      'decrementQte': (id) => decrementQte(id),
+      'qteIncrement': (id) => qteIncrement(id)
     }}>
       <header>
         <link rel="icon" type="img/png" href="/assets/img/icons/hanger.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         <Menu
-          handelDisplayPanier={handelDisplayPanier}
+          handleDisplayPanier={handleDisplayPanier}
           handelToggleMenu={handelToggleMenu}
           sendEntries={menuentries}
         > </Menu>
@@ -111,7 +140,7 @@ const App = () => {
           handelToggleMenu={handelToggleMenu}
         ></ListMenu> : <></>}
 
-{/* {stateToggleMenu.displayToggleMenu && <ListMenu/>} */}
+        {/* {stateToggleMenu.displayToggleMenu && <ListMenu/>} */}
 
 
         {/* Panier: */}
