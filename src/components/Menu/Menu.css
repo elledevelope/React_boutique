@@ -60,7 +60,7 @@
 
 
 /* MEDIA QUERY TABLETTE AND DESKTOP */
-@media screen and (min-width: 576px) { 
+@media screen and (min-width: 1024px) { 
     .Menu .burger {
         display: none;
     }

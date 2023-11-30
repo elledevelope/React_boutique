@@ -1,6 +1,6 @@
 .footerBackground {
     background-color: #e8e8e8;
-    height: 70vh;
+    height: 55vh;
 }
 
 .Footer {
@@ -60,7 +60,7 @@
 
 
 /* MEDIA QUERY TABLETTE AND DESKTOP */
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 1024px) { 
     .Footer {
         display: flex;
         flex-direction: row;
